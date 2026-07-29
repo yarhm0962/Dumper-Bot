@@ -1,9 +1,9 @@
+import os
 import discord
 from discord.ext import commands
 import aiohttp
 import re
 import io
-import os
 
 TOKEN = os.getenv("TOKEN")
 
@@ -30,7 +30,6 @@ async def fetch_content(url: str) -> str:
 
 def detect_and_deobf(code: str) -> str:
     result = []
-    original = code
 
     if "Lunr" in code or ("return(function" in code and "local L={" in code):
         result.append("[✓] Detected: Lunr Obfuscation")
